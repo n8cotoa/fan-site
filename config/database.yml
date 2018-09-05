@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+
+development:
+  <<: *default
+  database: fan_site_development
+
+test:
+  <<: *default
+  database: fan_site_test
+
+production:
+  <<: *default
+  database: fan_site_production
+  username: fan_site
+  password: <%= ENV['EXAMPLE_DATABASE_PASSWORD'] %>
