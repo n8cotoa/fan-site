@@ -1,13 +1,14 @@
 class Post < ActiveRecord::Base
   validates :title, :description, :presence => true
+  has_and_belongs_to_many :comments
 
   scope :sort_alpha, -> {(
-    select("posts.id, posts.title")
+    select("posts.id, posts.title, posts.avg_rating")
     .order("lower(posts.title) ASC")
     )}
 
   scope :sort_date, -> {(
-    select("posts.id, posts.title, posts.created_at")
+    select("posts.id, posts.title, posts.created_at, posts.avg_rating")
     .order("posts.created_at DESC")
     )}
 

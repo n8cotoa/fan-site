@@ -8,6 +8,12 @@
   <button type="submit" name="button" value="3">3 star</button>
   <button type="submit" name="button" value="4">4 star</button>
 </form>
+<p><%= link_to "Add Comment", new_comment_path(@post) %></p>
+<ul>
+  <% @post.comments.each do |commentz| %>
+  <li><%= commentz.comment %></li>
+  <% end %>
+</ul>
 <p><%= link_to "Home", posts_path %></p>
 <p><%= link_to "Edit", edit_post_path %> </p>
 <p><%= link_to "Delete", post_path(@post),
