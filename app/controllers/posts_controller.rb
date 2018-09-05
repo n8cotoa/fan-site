@@ -8,6 +8,7 @@ class PostsController < ApplicationController
     else
       @posts = Post.all
     end
+    @highlighted_post = Post.all.sample(1).first()
   end
 
   def new
@@ -25,6 +26,10 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    if params['button'] != nil
+      returned_ratings = @post.post_rating(params['button'])
+      @post.update(ratings: returned_ratings[0], avg_rating: returned_ratings[1])
+    end
   end
 
   def edit

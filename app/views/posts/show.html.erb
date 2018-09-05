@@ -1,6 +1,14 @@
 <h1><%= @post.title %></h1>
 <h3><%= @post.description %></h3>
 
+<p>Rate this post:</p>
+<form>
+  <button type="submit" name="button" value="1">1 star</button>
+  <button type="submit" name="button" value="2">2 star</button>
+  <button type="submit" name="button" value="3">3 star</button>
+  <button type="submit" name="button" value="4">4 star</button>
+</form>
+<p><%= link_to "Home", posts_path %></p>
 <p><%= link_to "Edit", edit_post_path %> </p>
 <p><%= link_to "Delete", post_path(@post),
                         :data => {:confirm => "You sure?",
