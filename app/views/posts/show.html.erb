@@ -1,0 +1,7 @@
+<h1><%= @post.title %></h1>
+<h3><%= @post.description %></h3>
+
+<p><%= link_to "Edit", edit_post_path %> </p>
+<p><%= link_to "Delete", post_path(@post),
+                        :data => {:confirm => "You sure?",
+                                  :method => "delete"} %></p>

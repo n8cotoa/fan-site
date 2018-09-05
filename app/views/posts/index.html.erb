@@ -1,1 +1,9 @@
 <h1>Welcome to X-MEN STUFF</h1>
+
+<ul>
+<% @posts.each do |post| %>
+  <li><%= link_to post.title, post_path(post) %></li>
+<% end %>
+</ul>
+
+<p><%= link_to "New Post", new_post_path %></p>
