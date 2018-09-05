@@ -1,6 +1,13 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    sort_value = params[:sort]
+    if sort_value == 'title'
+      @posts = Post.sort_alpha
+    elsif sort_value == 'date'
+      @posts = Post.sort_date
+    else
+      @posts = Post.all
+    end
   end
 
   def new

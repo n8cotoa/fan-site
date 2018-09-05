@@ -1,4 +1,6 @@
 <h1>Welcome to X-MEN STUFF</h1>
+<%= link_to "Sort Alphabetically", posts_path(:sort => 'title') %>
+<%= link_to "Sort by Date", posts_path(:sort => 'date') %>
 
 <ul>
 <% @posts.each do |post| %>
