@@ -1,6 +1,7 @@
 class Post < ActiveRecord::Base
   validates :title, :description, :presence => true
   has_and_belongs_to_many :comments
+  belongs_to :users
 
   scope :sort_alpha, -> {(
     select("posts.id, posts.title, posts.avg_rating")

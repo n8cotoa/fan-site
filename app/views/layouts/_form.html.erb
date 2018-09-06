@@ -1,4 +1,7 @@
 <%= form_for @post do |f| %>
+  <%= f.label :username %>
+  <%= f.collection_select :user_id, User.order(:username),:id, :username %>
+
   <%= f.label :title %>
   <%= f.text_field :title %>
 
