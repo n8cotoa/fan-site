@@ -2,6 +2,8 @@
 
 <ul>
   <% @users.each do |userz| %>
-  <li><%= userz.username %></li>
+  <li><%=link_to userz.username, user_path(userz) %></li>
   <% end %>
 </ul>
+
+<p><%= link_to "Home", posts_path %></p>

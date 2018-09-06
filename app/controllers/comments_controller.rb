@@ -17,6 +17,8 @@ class CommentsController < ApplicationController
 
   private
     def comment_params
-      params.require(:comment).permit(:comment)
+      user_id = params[:comment][:user_id].to_i
+      params.require(:comment).permit(:comment, :user_id)
+      new_params = {:comment => params[:comment][:comment], :user_id => user_id}
     end
   end
