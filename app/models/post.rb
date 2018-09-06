@@ -2,6 +2,16 @@ class Post < ActiveRecord::Base
   validates :title, :description, :presence => true
   has_and_belongs_to_many :comments
   belongs_to :user
+  
+  def self.get_scope(sort_value)
+    if sort_value == 'title'
+      self.sort_alpha
+    elsif sort_value == 'date'
+      self.sort_date
+    else
+      self.all
+    end
+  end
 
   scope :sort_alpha, -> {(
     select("posts.id, posts.title, posts.avg_rating")

@@ -1,13 +1,7 @@
 class PostsController < ApplicationController
   def index
     sort_value = params[:sort]
-    if sort_value == 'title'
-      @posts = Post.sort_alpha
-    elsif sort_value == 'date'
-      @posts = Post.sort_date
-    else
-      @posts = Post.all
-    end
+    @posts = Post.get_scope(sort_value)
     @highlighted_post = Post.all.sample(1).first()
   end
 
