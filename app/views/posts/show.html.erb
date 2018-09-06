@@ -1,5 +1,6 @@
 <h1><%= @post.title %></h1>
 <h3><%= @post.description %></h3>
+<h4>by <%=@post.user.username %></h4>
 
 <p>Rate this post:</p>
 <form>
@@ -11,7 +12,9 @@
 <p><%= link_to "Add Comment", new_post_comment_path(@post) %></p>
 <ul>
   <% @post.comments.each do |commentz| %>
-  <li><%= commentz.comment %></li>
+  <li><%= commentz.comment %> </li>
+  <p>- <em><%=commentz.user.username %></em></p>
+  <hr>
   <% end %>
 </ul>
 <p><%= link_to "Home", posts_path %></p>

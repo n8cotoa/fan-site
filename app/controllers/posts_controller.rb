@@ -16,7 +16,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    byebug
     @post = Post.new(post_params)
     if @post.save
       redirect_to posts_path
@@ -54,8 +53,6 @@ class PostsController < ApplicationController
 
 private
   def post_params
-    user_id = params[:post][:user_id].to_i
     params.require(:post).permit(:title, :description, :user_id)
-    new_params = {:title => params[:post][:title], :description => params[:post][:description], :user_id => user_id}
   end
 end

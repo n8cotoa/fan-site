@@ -1,9 +1,11 @@
 <h1>Welcome to X-MEN STUFF</h1>
+<hr>
 <div class="highlighted_post">
   <h2>Highlighted Post</h2>
   <h3><%= @highlighted_post.title %></h3>
   <p><%= @highlighted_post.description %> </p>
 </div>
+<hr>
 
 <%= link_to "Sort Alphabetically", posts_path(:sort => 'title') %>
 <%= link_to "Sort by Date", posts_path(:sort => 'date') %>
